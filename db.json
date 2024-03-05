@@ -22,13 +22,19 @@
       "id": "838b",
       "text": "Go to Swimming",
       "day": "25 th March 2024",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": "f209",
       "text": "Go to Farms",
       "day": "25 th March 2024",
       "reminder": true
+    },
+    {
+      "id": "ab75",
+      "text": "Go to Swimming",
+      "day": "March 23 at 10.00",
+      "reminder": false
     }
   ]
 }
