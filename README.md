@@ -19,6 +19,10 @@ npm run build
 ```
 npm run lint
 ```
+### fake backend server loads
+```
+npm run backend
+```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
