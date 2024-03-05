@@ -86,6 +86,6 @@ export default defineComponent({
     },
     async created(): Promise<void> {
         this.tasks = await this.fetchTasks();
-    }
+    },emits: ['task-delete', 'task-toggle']
 });
 </script>

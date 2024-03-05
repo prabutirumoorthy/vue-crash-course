@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <PageHeader :showAddtask="showAddToggleTask" @show-toggle-task="toggleTask" title="Task Tracker" />
+    <PageHeader :showButton="isHomePage" :showAddtask="showAddToggleTask" @show-toggle-task="toggleTask" title="Task Tracker" />
 
     
-    <router-view :showAddTask="showAddToggleTask"></router-view>
+    <router-view :showButton="isHomePage" :showAddTask="showAddToggleTask"></router-view>
     <PageFooter />
   </div>
   
@@ -13,14 +13,13 @@
 import { defineComponent } from 'vue'
 import PageHeader from './components/PageHeader.vue'
 import PageFooter from './components/PageFooter.vue'
-
+import { RouteLocationNormalizedLoaded } from 'vue-router';
 
 
 export default defineComponent({
   name: 'App',
   components: {
     PageHeader,
-
     PageFooter
   },
   data() {
@@ -28,13 +27,22 @@ export default defineComponent({
       showAddToggleTask: false
     }
   },
-  methods: {
-    
+  methods: {    
     toggleTask() {
       this.showAddToggleTask = !this.showAddToggleTask
     },
   },
-  emits: ['task-delete', 'task-toggle']
+  mounted() {
+    // Access the current route name
+    const currentRouteName = this.$route.name;
+    console.log("Current route name:", currentRouteName);
+  },
+  computed: {
+    isHomePage(): boolean {
+      // Check if the current route is the home page
+      return (this.$route as RouteLocationNormalizedLoaded).name === 'Home';
+    },
+  },
 
 });
 </script>

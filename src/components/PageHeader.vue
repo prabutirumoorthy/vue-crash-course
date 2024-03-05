@@ -1,7 +1,7 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <FormButton @button-click="$emit('show-toggle-task')" :text="showAddtask ? 'Close' : 'Add Task'" :color="showAddtask ?'red':'green'" />
+        <FormButton v-show="showButton"  @button-click="$emit('show-toggle-task')" :text="showAddtask ? 'Close' : 'Add Task'" :color="showAddtask ?'red':'green'" />
     </header>
 </template>
 <script lang="ts">
@@ -12,7 +12,8 @@ export default defineComponent({
     name: 'PageHeader',
     props: {
         title:String,
-        showAddtask:Boolean
+        showAddtask:Boolean,
+        showButton:Boolean
     },
     components:{
         FormButton
